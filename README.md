@@ -13,3 +13,5 @@ Please refer to the below links for more overview:
 [Smart Contract Current Read Count](https://mumbai.polygonscan.com/address/0x8a23acca6d05b8ddde7ab458e1656bb93b9e754f#readContract)
 
 [Smart Contract Write, Try it yourself](https://mumbai.polygonscan.com/address/0x8a23acca6d05b8ddde7ab458e1656bb93b9e754f#writeContract)
+
+Last but not the least, here's the [Twitter Post Link](https://twitter.com/last_bench3r/status/1672885055935447041)
