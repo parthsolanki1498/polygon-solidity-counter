@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Deploying Counter to Polygon</title>
+	<script src="https://cdn.jsdelivr.net/npm/web3@4.0.1/dist/web3.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		// 1. Connect MetaMask
+		(async() =>{
+			if(window.ethereum){
+			await window.ethereum.send('eth_requestAccounts');
+			window.web3 = new Web3(window.ethereum);
+
+			var accounts = await web3.eth.getAccounts();
+			account = accounts[0];
+			}
+		})();
+
+		// 2. Deploy the bytecode
+		const deploy = async (abi, bytecode) => {
+			var deployingContract = new web3.eth.Contract(abi).deploy({
+				data:bytecode,
+				arguments: []
+			});
+
+			var estimatedGas = await deployingContract.estimateGas();
+
+			var deployedContract = await deployingContract.send({
+				from: account,
+				gas: estimatedGas
+			})
+
+			console.log("Address - " + deployedContract.options.address);
+
+			return deployedContract.options.address;
+		}	
+	</script>
+
+</body>
+</html>
